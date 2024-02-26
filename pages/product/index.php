@@ -14,14 +14,14 @@
                                 <th>Product</th>
                                 <th>Price</th>
                                 <th>Stock</th>
-                                <th>Action</th>
+                                <th class="text-center">Action</th>
                             </tr>
                             <tr>
                                 <td>WAFU SHOYU RAMEN</td>
                                 <td>Rp. 45.000</td>
                                 <td>100</td>
-                                <td>
-                                    <a href="index.php?page=edit_product" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                <td class="d-flex justify-content-center">
+                                    <a href="index.php?page=edit_product" class="btn btn-primary btn-sm me-1"><i class="bi bi-pencil-square"></i></a>
                                     <a href="" class="btn btn-danger btn-sm" onclick="confirm('Are you sure delete this item?')"><i class="bi bi-trash3"></i></a>
                                 </td>
                             </tr>

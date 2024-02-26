@@ -101,6 +101,10 @@ body {
     color: #15c6b5 !important;
 }
 
+td {
+    white-space: nowrap;
+}
+
 .card {
     border-radius: 10px;
 }
