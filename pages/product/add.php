@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-lg-5">
             <h5 class="mb-3">Add New Product</h5>
             <div class="card">
@@ -21,7 +21,9 @@
                             <label for="image" class="form-label">Image</label>
                             <input type="file" class="form-control" id="image" name="image" required>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="add">Add Product</button>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary" name="add">Add Product</button>
+                        </div>
                     </form>
                 </div>
             </div>

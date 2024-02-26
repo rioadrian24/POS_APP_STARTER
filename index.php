@@ -23,15 +23,29 @@ include "config.php";
 
 <body>
 
-    <nav class="navbar navbar-expand-lg mb-3">
+    <nav class="navbar navbar-expand-lg  mb-5">
         <div class="container">
-            <div class="navbar-nav gap-3">
-                <a class="nav-link" href="index.php?page=home">Home</a>
-                <a class="nav-link" href="index.php?page=product">Products</a>
-                <a class="nav-link" href="index.php?page=order">Orders</a>
-            </div>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link text-danger" href="index.php">Logout</a>
+            <a class="navbar-brand fw-bold text-primary fs-2" href="index.php?page=home">POS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="index.php?page=home">Home</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="index.php?page=product">Products</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="index.php?page=order">Orders</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link text-danger">Logout</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>

@@ -1,6 +1,6 @@
 <div class="container pb-5">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-8 order-lg-0 order-1">
             <div class="row mb-4">
                 <div class="col-lg-6">
                     <h2 class="text-primary">Resto with Smart POS</h2>
@@ -23,7 +23,7 @@
 
             <div class="row g-4">
                 <?php for ($i = 0; $i <= 5; $i++) : ?>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-4 col-6">
                         <div class="card">
                             <img src="https://hokben-images.s3.ap-southeast-3.amazonaws.com/menu/cc8c22888510f1205b3feebaab2b4618-1703643829982" class="card-img-top object-fit-cover" alt="..." style="height: 181.44px;">
                             <div class="card-body">
@@ -44,7 +44,7 @@
                 <?php endfor; ?>
             </div>
         </div>
-        <div class="col-lg-4 position-relative">
+        <div class="col-lg-4 order-lg-1 order-0 mb-3 position-relative">
             <form method="POST">
                 <h4 class="text-primary mb-3">Orders #1</h4>
 
