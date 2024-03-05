@@ -1,3 +1,29 @@
+<?php
+
+if (isset($_POST['add'])) {
+    $name  = $_POST['name'];
+    $price = $_POST['price'];
+    $stock = $_POST['stock'];
+    $image = $_FILES['image']['name'];
+    $tmp   = $_FILES['image']['tmp_name'];
+
+    $path = 'assets/img/product/' . $image;
+
+    if (move_uploaded_file($tmp, $path)) {
+        $sql = "INSERT INTO products (name, price, stock, image)
+        VALUES ('$name', '$price', '$stock', '$image')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            set_message('success', 'Product added successfully');
+        } else {
+            set_message('danger', 'Failed to add product');
+        }
+        header("Location: index.php?page=product");
+    }
+}
+
+?>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-5">

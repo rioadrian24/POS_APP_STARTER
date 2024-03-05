@@ -22,33 +22,34 @@ include "config.php";
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg  mb-5">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-primary fs-2" href="index.php?page=home">POS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item me-4">
-                        <a class="nav-link" href="index.php?page=home">Home</a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link" href="index.php?page=product">Products</a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link" href="index.php?page=order">Orders</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="index.php" class="nav-link text-danger">Logout</a>
-                    </li>
-                </ul>
+    <?php if (isset($_SESSION['user'])) : ?>
+        <nav class="navbar navbar-expand-lg  mb-5">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary fs-2" href="index.php?page=home">POS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item me-4">
+                            <a class="nav-link" href="index.php?page=home">Home</a>
+                        </li>
+                        <li class="nav-item me-4">
+                            <a class="nav-link" href="index.php?page=product">Products</a>
+                        </li>
+                        <li class="nav-item me-4">
+                            <a class="nav-link" href="index.php?page=order">Orders</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="index.php?page=logout" class="nav-link text-danger">Logout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    <?php endif; ?>
 
     <?php
 
@@ -66,6 +67,9 @@ include "config.php";
         case 'add_product':
             include "pages/product/add.php";
             break;
+        case 'delete_product':
+            include "pages/product/delete.php";
+            break;
         case 'edit_product':
             include "pages/product/edit.php";
             break;
@@ -77,6 +81,9 @@ include "config.php";
             include "pages/order/detail.php";
             break;
             // auth
+        case 'logout':
+            include "pages/auth/logout.php";
+            break;
         default:
             include "pages/auth/login.php";
             break;

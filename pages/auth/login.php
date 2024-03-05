@@ -1,3 +1,24 @@
+<?php
+
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $user = $conn->query("SELECT * FROM users
+    WHERE username = '$username' AND password = '$password'");
+
+    if ($user->num_rows > 0) {
+        $_SESSION['user'] = $user->fetch_assoc();
+        set_message("success", "Login berhasil!");
+        header("Location: index.php?page=home");
+    } else {
+        set_message("danger", "Username / password salah");
+        header("Location: index.php");
+    }
+}
+
+?>
+
 <div class="container">
     <div class="row justify-content-center align-items-center py-5" style="min-height: 100vh;">
         <div class="col-md-6 col-lg-4">
@@ -19,7 +40,7 @@
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-                        <a href="index.php?page=home" class="btn btn-primary w-100 mt-3" name="login">Login</a>
+                        <button class="btn btn-primary w-100 mt-3" name="login">Login</button>
                     </form>
                 </div>
             </div>
