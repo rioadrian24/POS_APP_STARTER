@@ -18,15 +18,14 @@ $products = $conn->query("SELECT * FROM products");
                                 <th>Product</th>
                                 <th>Price</th>
                                 <th>Stock</th>
-                                <th class="text-center">Action</th>
+                                <th>Action</th>
                             </tr>
                             <?php foreach ($products as $product) : ?>
                                 <tr>
                                     <td><?= $product['name'] ?></td>
                                     <td>Rp. <?= number_format($product['price'], 0, '.', '.') ?></td>
                                     <td><?= $product['stock'] ?></td>
-                                    <td class="d-flex justify-content-center">
-                                    <td><?= $product['stock'] ?></td>
+                                    <td>
                                         <a href="index.php?page=edit_product&id_product=<?= $product['id_product'] ?>" class="btn btn-primary btn-sm me-1"><i class="bi bi-pencil-square"></i></a>
                                         <a href="index.php?page=delete_product&id_product=<?= $product['id_product'] ?>" class="btn btn-danger btn-sm" onclick="confirm('Are you sure delete this item?')"><i class="bi bi-trash3"></i></a>
                                     </td>

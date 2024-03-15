@@ -1,3 +1,10 @@
+<?php
+
+// ambil product dari data terakhir
+$products = $conn->query("SELECT * FROM products");
+
+?>
+
 <div class="container pb-5">
     <div class="row">
         <div class="col-lg-8 order-lg-0 order-1">
@@ -20,17 +27,17 @@
             </div>
 
             <?= show_message() ?>
-
+            
             <div class="row g-4">
-                <?php for ($i = 0; $i <= 5; $i++) : ?>
+                <?php foreach ($products as $product) : ?>
                     <div class="col-lg-4 col-md-4 col-6">
                         <div class="card">
-                            <img src="https://hokben-images.s3.ap-southeast-3.amazonaws.com/menu/cc8c22888510f1205b3feebaab2b4618-1703643829982" class="card-img-top object-fit-cover" alt="..." style="height: 181.44px;">
+                            <img src="<?= $product['image'] ?>" class="card-img-top object-fit-cover" alt="..." style="height: 181.44px;">
                             <div class="card-body">
-                                <h6 class="card-title" style="height: 38.38px;">WAFU SHOYU RAMEN</h6>
+                                <h6 class="card-title" style="height: 38.38px;"><?= $product['name'] ?></h6>
                                 <div class="row align-items-center g-0">
                                     <div class="col-lg-6">
-                                        <p class="card-text text-muted">Rp. 45.000</p>
+                                        <p class="card-text text-muted">Rp. <?= number_format($product['price'], 0, '.', '.') ?></p>
                                     </div>
                                     <div class="col-lg-6 text-end">
                                         <a href="" class="btn btn-primary">
@@ -41,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                <?php endfor; ?>
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="col-lg-4 order-lg-1 order-0 mb-3 position-relative">

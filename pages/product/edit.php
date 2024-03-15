@@ -4,10 +4,36 @@ $id_product = $_GET['id_product'];
 
 $product = $conn->query("SELECT * FROM products WHERE id_product = '$id_product'")->fetch_assoc();
 
+if (isset($_POST['edit'])) {
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $stock = $_POST['stock'];
+    $image = $_FILES['image'];
+
+    if (isset($image['name'])) {
+        // hapus gambar sebelumnya
+        unlink('assets/img/product/' . $product['image']);
+        // upload gambar baru
+        move_uploaded_file($image['tmp_name'], 'assets/img/product/' . $image['name']);
+        // untuk ambil nama filenya
+        $image_name = $_FILES['image']['name'];
+    } else {
+        // jika tidak memilih gambar, maka pakai gambar yg sebelumnya
+        $image_name = $product['image'];
+    }
+
+    $conn->query("UPDATE products SET
+    name = '$name', price = '$price', stock = '$stock', image = '$image_name'
+    WHERE id_product = '$id_product'");
+
+    set_message('success', 'Product has been updated');
+    header('Location: index.php?page=product');
+}
+
 ?>
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center mb-5">
         <div class="col-lg-5">
             <h5 class="mb-3">Edit Product</h5>
             <div class="card">
